@@ -7,7 +7,7 @@
 
 - 右上角点击 Fork
 - 在 Repository name 栏目中填写你的自定义仓库名(其他不用改)，然后点 Create repository
----- 
+ 
 - 创建后需要开启权限，在页面的 Settings - Actions - General - Workflow permissions 页面中，然后鼠标拉到
 - 最下面，点选 Read and write permissions，勾上 Allow GitHub Actions to create and approve pull requests
 - 最后点 Save 即可
