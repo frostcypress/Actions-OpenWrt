@@ -5,22 +5,27 @@
 
 ## 使用方法
 
-- 右上角点击 Fork
-- 在 Repository name 栏目中填写你的自定义仓库名(其他不用改)，然后点 Create repository
--
-- 创建后需要开启权限，在页面的 Settings - Actions - General - Workflow permissions 页面中，然后鼠标拉到
-- 最下面，点选 Read and write permissions，勾上 Allow GitHub Actions to create and approve pull requests
-- 最后点 Save 即可
--  
-- 在仓库页面中（一般修改以下4项即可）
-- Part0_Global.env 是全局变量，可按需调整
-- Part1_Feeds.sh 是软件源地址，可按需添加
-- Part2_Custom.sh 是自定义配置，可按需修改
-- configs 里面的是型号插件配置文件，可以借鉴其他人的或者AI生成也行
-- 
-- 在 Actions 页面选择 Build ，然后点击右边的 Run workflow 编译任务
-- 可修改 Update.yml 中的 - cron: '* * * * *' 设置相应的定时更新计划
-- 编译完成后，在 Actions 或 Releases 页面下载固件镜像
+1.点击右上角 **Fork**，填写 `Repository name` 后点击 `Create repository`
+
+2.配置工作流权限（关键步骤）
+
+- 进入 `Settings → Actions → General → Workflow permissions`
+- 选择 `Read and write permissions`
+- 勾选 `Allow GitHub Actions to create and approve pull requests`
+- 点击 `Save` 保存配置，为自动化流程启用必要权限
+
+3.按需修改仓库关键配置文件
+
+- `Part0_Global.env`：全局编译变量
+- `Part1_Feeds.sh`：软件源地址配置
+- `Part2_Custom.sh`：自定义固件配置
+- `configs/`：设备型号插件配置
+
+4.进入 `Actions` 页面，选择 `Build` 工作流，点击 `Run workflow` 开始编译
+
+5.如需定时更新，可修改 `Update.yml` 中的 `cron` 表达式
+
+6.编译完成后，前往 `Actions` 或 `Releases` 页面下载固件镜像
 
 ## 编译方式
 
