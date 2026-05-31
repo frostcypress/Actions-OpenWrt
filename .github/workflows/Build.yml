@@ -198,7 +198,7 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: bash scripts/organize.sh
       env:
-        SOURCE_NAME: ${{ env.FIRMWARE_NAME }}
+        FIRMWARE_NAME: ${{ env.FIRMWARE_NAME }}
         KEEP_EXTS: .img .img.gz
   
     - name: 上传核心固件到Actions页面
