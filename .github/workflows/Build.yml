@@ -89,9 +89,9 @@ jobs:
       uses: actions/cache@v5
       with:
         path: ${{ env.CACHE_SYNC }}
-        key: ${{ env.SOURCE_NAME }}-sync-${{ matrix.device }}-${{ steps.shash.outputs.sourceHash }}-${{ github.run_id }}
+        key: ${{ env.FIRMWARE_NAME }}-sync-${{ matrix.device }}-${{ steps.shash.outputs.sourceHash }}-${{ github.run_id }}
         restore-keys: |
-          ${{ env.SOURCE_NAME }}-sync-${{ matrix.device }}-${{ steps.shash.outputs.sourceHash }}-
+          ${{ env.FIRMWARE_NAME }}-sync-${{ matrix.device }}-${{ steps.shash.outputs.sourceHash }}-
       
     - name: 克隆OpenWrt源码
       working-directory: /workdir
@@ -190,7 +190,7 @@ jobs:
       uses: actions/upload-artifact@v6
       if: env.UPLOAD_BIN_DIR == 'true' && steps.compile.outputs.status == 'success' && !cancelled() 
       with:
-        name: ${{ env.SOURCE_NAME }}_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: ${{ env.FIRMWARE_NAME }}_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
   
     - name: 精简Bin目录，保留核心固件
@@ -198,14 +198,14 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: bash scripts/organize.sh
       env:
-        SOURCE_NAME: ${{ env.SOURCE_NAME }}
+        SOURCE_NAME: ${{ env.FIRMWARE_NAME }}
         KEEP_EXTS: .img .img.gz
   
     - name: 上传核心固件到Actions页面
       uses: actions/upload-artifact@v6
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: ${{ env.SOURCE_NAME }}_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: ${{ env.FIRMWARE_NAME }}_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
   
     - name: 发布核心固件到Releases页面
