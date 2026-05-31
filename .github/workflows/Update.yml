@@ -34,7 +34,7 @@ jobs:
       run: |
         CACHE_KEY=$(gh api repos/${{ github.repository }}/actions/caches \
           --paginate -q '.actions_caches[]
-          | select(.key | startswith("${{ env.SOURCE_NAME }}-sync-"))
+          | select(.key | startswith("${{ env.FIRMWARE_NAME }}-sync-"))
           | .key' | sort -r | head -n1 || echo "") 
         if [[ -z "$CACHE_KEY" ]]; then
           echo "buildHash=" >> $GITHUB_OUTPUT
