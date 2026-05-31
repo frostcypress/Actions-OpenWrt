@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # 直接用 v1 + run_id，不做任何计算
-RELEASE_TAG="v1-${GITHUB_RUN_ID}"
+RELEASE_TAG="${VERSION_PREFIX}-${GITHUB_RUN_ID}"
 
 echo "release_tag=${RELEASE_TAG}" >> "$GITHUB_OUTPUT"
 echo "status=success" >> "$GITHUB_OUTPUT"
