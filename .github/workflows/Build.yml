@@ -217,6 +217,7 @@ jobs:
         GITHUB_RUN_ID: ${{ github.run_id }}
         FIRMWARE: ${{ env.FIRMWARE }}
         RELEASE_NOTES: ${{ env.RELEASE_NOTES }}
+        VERSION_NAME: ${{ env.VERSION_NAME }}
 
   
   clean:
