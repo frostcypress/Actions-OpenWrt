@@ -2,14 +2,8 @@
 set -euo pipefail
 
 VERSION_PREFIX="${VERSION_PREFIX:-v1.0}"
-MANUAL_VERSION=""
-
-if [ -n "$MANUAL_VERSION" ]; then
-  RELEASE_TAG="$MANUAL_VERSION"
-else
-  NEXT_NUM=$(gh release list | awk -v p="$VERSION_PREFIX" '$0~p{print $1}' | sort -Vr | head -n1 | grep -oE '[0-9]+$' || echo 0)
-  RELEASE_TAG="${VERSION_PREFIX}.$((NEXT_NUM + 1))"
-fi
+NEXT_NUM=$(gh release list | awk -v p="$VERSION_PREFIX" '$0~p{print $1}' | sort -Vr | head -n1 | grep -oE '[0-9]+$' || echo 0)
+RELEASE_TAG="${VERSION_PREFIX}.$((NEXT_NUM + 1))"
 
 echo "release_tag=${RELEASE_TAG}" >> "$GITHUB_OUTPUT"
 echo "status=success" >> "$GITHUB_OUTPUT"
