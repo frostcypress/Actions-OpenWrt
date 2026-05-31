@@ -186,17 +186,27 @@ jobs:
       if: steps.compile.outputs.status == 'success' && !cancelled() 
       run: df -hT
   
-    - name: Generate release tag & upload
+    - name: Generate release tag
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        # 一行生成递增版本号 v1.0.1、v1.0.2...
         echo "release_tag=v1.0.$((github.run_number))" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
+
+    - name: Create release and upload assets
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      env:
+        RELEASE_TAG: ${{ steps.tag.outputs.release_tag }}
+      run: |
+        if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+          echo -e "\n🔄 创建新版本标签..."
+          gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes-file "$RELEASE_NOTES"
+        else
+          echo -e "\n⚠️ 版本标签已存在，跳过创建"
+        fi
     
-        # 一步：不存在则创建 + 强制上传文件
-        gh release create "${{ steps.tag.outputs.release_tag }}" --title "${{ steps.tag.outputs.release_tag }}" --notes-file "$RELEASE_NOTES" --clobber || true
-        gh release upload "${{ steps.tag.outputs.release_tag }}" "${FIRMWARE}"/* --clobber
+        echo -e "\n🔄 上传核心固件中..."
+        gh release upload "$RELEASE_TAG" "${FIRMWARE}"/* --clobber
   
     - name: 精简Bin目录，保留核心固件
       id: organize
