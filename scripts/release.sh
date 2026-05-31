@@ -2,11 +2,12 @@
 set -euo pipefail
 
 VERSION_PREFIX="${VERSION_PREFIX:-v1.0}"
+RUN_ID="${GITHUB_RUN_ID}"
 
-RELEASE_TAG="${VERSION_PREFIX}.${GITHUB_RUN_NUMBER}"
+NEXT_NUM=$(gh release list | awk -v p="$VERSION_PREFIX" '$0~p{print $1}' | sort -Vr | head -n1 | grep -oE '[0-9]+$' || echo 0)
+BASE_TAG="${VERSION_PREFIX}.$((NEXT_NUM + 1))"
 
-#NEXT_NUM=$(gh release list | awk -v p="$VERSION_PREFIX" '$0~p{print $1}' | sort -Vr | head -n1 | grep -oE '[0-9]+$' || echo 0)
-#RELEASE_TAG="${VERSION_PREFIX}.$((NEXT_NUM + 1))"
+RELEASE_TAG="${BASE_TAG}-${RUN_ID}"
 
 echo "release_tag=${RELEASE_TAG}" >> "$GITHUB_OUTPUT"
 echo "status=success" >> "$GITHUB_OUTPUT"
