@@ -214,7 +214,7 @@ jobs:
       run: bash scripts/release.sh
       env:
         GITHUB_TOKEN: ${{ github.token }}
-        GITHUB_RUN_NUMBER: ${{ github.run_number }}
+        GITHUB_RUN_NUMBER: ${{ github.run_id }}
         FIRMWARE: ${{ env.FIRMWARE }}
         RELEASE_NOTES: ${{ env.RELEASE_NOTES }}
         VERSION_PREFIX: v1.0
