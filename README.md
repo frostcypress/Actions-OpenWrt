@@ -1,7 +1,7 @@
 
 # 欢迎使用云端编译OpenWrt
 
-本项目基于 [P3TERX](https://github.com/P3TERX/Actions-OpenWrt) 源码修改，能力有限，如有 bug 还请见谅!!!
+本项目基于 [P3TERX](https://github.com/P3TERX/Actions-OpenWrt) 源码修改，能力有限，如有 bug 还请见谅 ! ! !
 
 ## 使用方法
 
