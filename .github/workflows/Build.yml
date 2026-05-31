@@ -83,6 +83,9 @@ jobs:
       id: shash
       if: env.USE_CCACHE == 'true'
       run: bash scripts/hash.sh
+      env:
+        REPO_URL: ${{ env.REPO_URL }}
+        REPO_BRANCH: ${{ env.REPO_BRANCH }}
 
     - name: 恢复Cache缓存数据
       if: env.USE_CCACHE == 'true'
