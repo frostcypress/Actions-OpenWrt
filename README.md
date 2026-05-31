@@ -45,9 +45,9 @@ Update
 - 编译速度整体提升 10% 以上，效果受型号、插件影响；
 - 缓存引发固件问题时，前往 `Action → Caches` 清空缓存，重新完整编译。
 
-## 致谢 / 项目引用
+## 项目引用
 
-- [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
 - [Actions](https://github.com/actions)
 - [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
 - [immortalwrt/immortalwrt](https://github.com/immortalwrt/immortalwrt)
+- [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
