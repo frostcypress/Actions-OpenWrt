@@ -4,7 +4,7 @@ set -euo pipefail
 cd openwrt/bin/targets/*/* || exit 1
 
 for f in openwrt-*.img*; do
-  [ -f "$f" ] && mv "$f" "${SOURCE_NAME}-${f#openwrt-}"
+  [ -f "$f" ] && mv "$f" "${FIRMWARE_NAME}-${f#openwrt-}"
 done
 
 KEEP_ARGS=()
