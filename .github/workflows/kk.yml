@@ -193,20 +193,7 @@ jobs:
         echo "release_tag=v1.0.$((github.run_number))" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
-    - name: Create release and upload assets
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      env:
-        RELEASE_TAG: ${{ steps.tag.outputs.release_tag }}
-      run: |
-        if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
-          echo -e "\n🔄 创建新版本标签..."
-          gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes-file "$RELEASE_NOTES"
-        else
-          echo -e "\n⚠️ 版本标签已存在，跳过创建"
-        fi
     
-        echo -e "\n🔄 上传核心固件中..."
-        gh release upload "$RELEASE_TAG" "${FIRMWARE}"/* --clobber
   
     - name: 精简Bin目录，保留核心固件
       id: organize
@@ -223,16 +210,20 @@ jobs:
         name: ${{ env.SOURCE_NAME }}_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
   
-    - name: 发布核心固件到Releases页面
-      id: tag
-      if: env.UPLOAD_RELEASE == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
-      run: bash scripts/release.sh
+    - name: Create release and upload assets
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       env:
-        GITHUB_TOKEN: ${{ github.token }}
-        GITHUB_RUN_NUMBER: ${{ github.run_number }}
-        FIRMWARE: ${{ env.FIRMWARE }}
-        RELEASE_NOTES: ${{ env.RELEASE_NOTES }}
-        VERSION_PREFIX: v1.0
+        RELEASE_TAG: ${{ steps.tag.outputs.release_tag }}
+      run: |
+        if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+          echo -e "\n🔄 创建新版本标签..."
+          gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes-file "$RELEASE_NOTES"
+        else
+          echo -e "\n⚠️ 版本标签已存在，跳过创建"
+        fi
+    
+        echo -e "\n🔄 上传核心固件中..."
+        gh release upload "$RELEASE_TAG" "${FIRMWARE}"/* --clobber
 
   
   clean:
