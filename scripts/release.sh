@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-RELEASE_TAG="${VERSION_PREFIX}-${GITHUB_RUN_ID}"
+RELEASE_TAG="${VERSION_NAME}-${GITHUB_RUN_ID}"
 
 echo "release_tag=${RELEASE_TAG}" >> "$GITHUB_OUTPUT"
 echo "status=success" >> "$GITHUB_OUTPUT"
