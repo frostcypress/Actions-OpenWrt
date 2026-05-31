@@ -214,6 +214,7 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       env:
         RELEASE_TAG: ${{ steps.tag.outputs.release_tag }}
+        GH_TOKEN: ${{ github.token }}
       run: |
         if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
           echo -e "\n🔄 创建新版本标签..."
