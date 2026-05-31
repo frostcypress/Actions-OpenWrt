@@ -23,14 +23,17 @@
 
 4.进入 `Actions` 页面，选择 `Build` 工作流，点击 `Run workflow` 开始编译
 
-5.如需定时更新，可修改 `Update.yml` 中的 `cron` 表达式
-
-6.编译完成后，前往 `Actions` 或 `Releases` 页面下载固件镜像
+5.编译完成后，前往 `Actions` 或 `Releases` 页面下载固件镜像
 
 ## 编译方式
 
-- 完整编译：每次固件编译时间一般需要1小时以上
-- 矩阵编译：可同时编译多个固件，编译上限自行测试
+Build:
+- 完整编译：单次固件编译耗时通常在 1 小时以上
+- 矩阵编译：支持同时编译多个固件，并发上限可自行测试
+
+Update
+- 通过源码哈希对比，自动判断是否编译
+- 定时更新可修改 `Update.yml` 的 `cron` 表达式
 
 ## 注意事项
 
@@ -43,7 +46,6 @@
 ## 致谢 / 项目引用
 
 - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
-- [GitHub Actions](https://github.com/features/actions)
 - [Actions](https://github.com/actions)
 - [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
 - [immortalwrt/immortalwrt](https://github.com/immortalwrt/immortalwrt)
