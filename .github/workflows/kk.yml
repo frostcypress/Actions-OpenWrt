@@ -205,8 +205,10 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       env:
         GH_TOKEN: ${{ github.token }}
+        RUN_NUMBER: ${{ github.run_number }}
       run: |
-        RELEASE_TAG="v1.0.$((github.run_number))"
+        # 再在Shell里使用环境变量
+        RELEASE_TAG="v1.0.$RUN_NUMBER"
         echo "当前版本标签：$RELEASE_TAG"
     
         if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
