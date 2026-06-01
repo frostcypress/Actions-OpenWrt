@@ -28,6 +28,9 @@ jobs:
     - name: 获取OpenWrt源码哈希值
       id: shash
       run: bash scripts/hash.sh
+      env:
+        REPO_URL: ${{ env.REPO_URL }}
+        REPO_BRANCH: ${{ env.REPO_BRANCH }}
 
     - name: 获取编译最新哈希值
       id: bhash
