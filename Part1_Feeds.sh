@@ -15,13 +15,20 @@
 #src-git helloworld https://github.com/fw876/helloworld.git
 #EOF
 
-# LEDE (master/20251001)
-cat >> feeds.conf.default << EOF
-src-git telephony https://github.com/coolsnowwolf/telephony.git
-src-git packages https://github.com/coolsnowwolf/packages
-src-git routing https://github.com/coolsnowwolf/routing
-src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05
+# LEDE (master)
+#cat >> feeds.conf.default << EOF
+#src-git packages https://github.com/coolsnowwolf/packages
 #src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12
+#src-git routing https://github.com/coolsnowwolf/routing
+#src-git telephony https://github.com/coolsnowwolf/telephony.git
+#EOF
+
+# LEDE (20251001)
+cat >> feeds.conf.default << EOF
+src-git packages https://github.com/coolsnowwolf/packages
+src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05
+src-git routing https://github.com/coolsnowwolf/routing
+src-git telephony https://github.com/coolsnowwolf/telephony.git
 EOF
 
 # immortalwrt (master)
