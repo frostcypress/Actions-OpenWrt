@@ -202,7 +202,7 @@ jobs:
       run: bash scripts/organize.sh
       env:
         FIRMWARE_NAME: ${{ env.FIRMWARE_NAME }}
-        KEEP_EXTS: .img .img.gz
+        KEEP_EXTS: .img .img.gz .ubi .bin
   
     - name: 上传核心固件到Actions页面
       uses: actions/upload-artifact@v6
