@@ -17,6 +17,7 @@
 
 # LEDE (master)
 cat >> feeds.conf.default << EOF
+src-git video https://github.com/openwrt/video.git
 src-git packages https://github.com/coolsnowwolf/packages
 src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12
 src-git routing https://github.com/coolsnowwolf/routing
