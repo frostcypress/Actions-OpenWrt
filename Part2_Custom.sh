@@ -15,6 +15,9 @@ CFG_PATH_2=package/base-files/files/etc/shadow
 sed -i '/vlmcsd/d' .config
 sed -i '/CCACHE/d' .config
 sed -i '/ddns/d' .config
+sed -i '/luci-app-wol/d' .config
+sed -i '/luci-i18n-wol/d' .config
+sed -i '/CONFIG_PACKAGE_etherwake/d' .config
 # 开启和指定缓存路径（默认）
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
