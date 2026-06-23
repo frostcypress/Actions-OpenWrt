@@ -15,7 +15,6 @@ CFG_PATH_2=package/base-files/files/etc/shadow
 sed -i '/vlmcsd/d' .config
 sed -i '/CCACHE/d' .config
 # 开启和指定缓存路径（默认）
-echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=y" >> .config
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
 
