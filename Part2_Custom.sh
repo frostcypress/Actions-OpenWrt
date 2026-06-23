@@ -28,7 +28,7 @@ CRYPT_PASSWORD=$(openssl passwd -1 "$NEW_PASSWORD")
 sed -i "s|^root:[^:]*:|root:$CRYPT_PASSWORD:|" $CFG_PATH_2
 
 echo "⚠️ 配置完成，正在验证..."
-grep -E 'CCACHE|vlmcsd' .config
+grep -E 'CCACHE|vlmcsd|ddns' .config
 grep -E 'root' $CFG_PATH_2
 grep -E "ipaddr" $CFG_PATH_1
 
