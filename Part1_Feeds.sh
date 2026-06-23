@@ -31,8 +31,3 @@ EOF
 #src-git telephony https://github.com/openwrt/telephony.git;openwrt-25.12
 #src-git video https://github.com/openwrt/video.git;openwrt-25.12
 #EOF
-
-src-git routing https://github.com/openwrt/routing.git^b2097c85bef85251364f59a6b2a3ed1f9f5c0c21
-src-git telephony https://github.com/openwrt/telephony.git^2618106d5846a4a542fdf5809f0d3ed228ce439b
-src-git video https://github.com/openwrt/video.git^094bf58da6682f895255a35a84349a79dab4bf95
-EOF
