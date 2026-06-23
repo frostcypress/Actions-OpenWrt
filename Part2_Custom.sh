@@ -14,6 +14,7 @@ CFG_PATH_2=package/base-files/files/etc/shadow
 # 清理旧配置
 sed -i '/vlmcsd/d' .config
 sed -i '/CCACHE/d' .config
+sed -i '/ddns/d' .config
 # 开启和指定缓存路径（默认）
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
