@@ -118,6 +118,7 @@ jobs:
         chmod +x $PART1_FEEDS
         cd openwrt
         $GITHUB_WORKSPACE/$PART1_FEEDS
+        echo 'src-git design https://github.com/coolsnowwolf/luci.git;openwrt-25.12;path=themes/luci-theme-design' >> feeds.conf.default
     
     - name: 更新并安装插件源软件包
       run: |
