@@ -19,19 +19,18 @@ sed -i '/CCACHE/d' .config
 #sed -i '/luci-i18n-wol/d' .config
 #sed -i '/CONFIG_PACKAGE_wol/d' .config
 #sed -i '/CONFIG_PACKAGE_etherwake/d' .config
-sed -i '/CONFIG_NSS_FIRMWARE_VERSION_11_4=y/d' .config
 # 开启和指定缓存路径（默认）
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
 
 # 修改登录IP
-NEW_IP="192.168.2.10"
+#NEW_IP="192.168.2.10"
 # 修改登录密码
-NEW_PASSWORD="123456"
+#NEW_PASSWORD="123456"
 # 执行IP、登录密码配置代码
-sed -i "s/192\.168\.[0-9]\+\.[0-9]\+/$NEW_IP/g" $CFG_PATH_1
-CRYPT_PASSWORD=$(openssl passwd -1 "$NEW_PASSWORD")
-sed -i "s|^root:[^:]*:|root:$CRYPT_PASSWORD:|" $CFG_PATH_2
+#sed -i "s/192\.168\.[0-9]\+\.[0-9]\+/$NEW_IP/g" $CFG_PATH_1
+#CRYPT_PASSWORD=$(openssl passwd -1 "$NEW_PASSWORD")
+#sed -i "s|^root:[^:]*:|root:$CRYPT_PASSWORD:|" $CFG_PATH_2
 
 echo "⚠️ 配置完成，正在验证..."
 grep -E 'CCACHE|vlmcsd|ddns|wol|etherwake' .config
