@@ -11,17 +11,25 @@
 CFG_PATH_1=$(find package/base-files -name "config_generate" -type f)
 CFG_PATH_2=package/base-files/files/etc/shadow
 
-# 清理旧配置
-sed -i '/vlmcsd/d' .config
-sed -i '/CCACHE/d' .config
-sed -i '/ddns/d' .config
-sed -i '/luci-app-wol/d' .config
-sed -i '/luci-i18n-wol/d' .config
-sed -i '/CONFIG_PACKAGE_wol/d' .config
-sed -i '/CONFIG_PACKAGE_etherwake/d' .config
 # 开启和指定缓存路径（默认）
+sed -i '/CCACHE/d' .config
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
+
+# 清理旧配置
+# kms
+sed -i '/vlmcsd/d' .config
+# ddns
+sed -i '/luci-app-ddns=y/d' .config
+sed -i '/luci-i18n-ddns-zh-cn=y/d' .config
+sed -i '/ddns-scripts=y/d' .config
+sed -i '/ddns-scripts-services=y/d' .config
+sed -i '/ddns-scripts_aliyun=y/d' .config
+sed -i '/ddns-scripts_dnspod=y/d' .config
+# wol
+sed -i '/luci-app-wol=y/d' .config
+sed -i '/luci-i18n-wol-zh-cn=y/d' .config
+sed -i '/etherwake=y/d' .config
 
 # 修改登录IP
 NEW_IP="192.168.2.1"
@@ -36,7 +44,3 @@ echo "⚠️ 配置完成，正在验证..."
 grep -E 'CCACHE|vlmcsd|ddns|wol|etherwake' .config
 grep -E 'root' $CFG_PATH_2
 grep -E "ipaddr" $CFG_PATH_1
-
-
-
-
