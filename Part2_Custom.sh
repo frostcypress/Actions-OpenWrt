@@ -20,6 +20,7 @@ sed -i '/CCACHE/d' .config
 #sed -i '/CONFIG_PACKAGE_wol/d' .config
 #sed -i '/CONFIG_PACKAGE_etherwake/d' .config
 sed -i '/CONFIG_NSS_FIRMWARE_VERSION_11_4=y/d' .config
+sed -i '/CONFIG_PACKAGE_luci-theme-design=n/d' .config
 # 开启和指定缓存路径（默认）
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
