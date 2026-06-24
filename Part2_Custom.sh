@@ -12,7 +12,7 @@ CFG_PATH_1=$(find package/base-files -name "config_generate" -type f)
 CFG_PATH_2=package/base-files/files/etc/shadow
 
 # 清理旧配置
-#sed -i '/vlmcsd/d' .config
+sed -i '/vlmcsd/d' .config
 sed -i '/CCACHE/d' .config
 #sed -i '/ddns/d' .config
 #sed -i '/luci-app-wol/d' .config
