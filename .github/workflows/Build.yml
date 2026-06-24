@@ -236,7 +236,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           CLEAN_TYPE: release
-          KEEP_LATEST: 0
+          KEEP_LATEST: 30
           KEEP_DAYS: 90
   
       - name: 清理旧Workflows运行记录
@@ -245,7 +245,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_WORKFLOW: ${{ github.workflow }}
           CLEAN_TYPE: workflow
-          KEEP_LATEST: 0
+          KEEP_LATEST: 10
           KEEP_DAYS: 90
   
       - name: 清理旧Cache缓存记录
@@ -253,5 +253,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           CLEAN_TYPE: cache
-          KEEP_LATEST: 0
+          KEEP_LATEST: 4
           KEEP_DAYS: 10
