@@ -16,12 +16,12 @@
 #EOF
 
 # LEDE (master)
-cat >> feeds.conf.default << EOF
-src-git packages https://github.com/coolsnowwolf/packages
-src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12
-src-git routing https://github.com/coolsnowwolf/routing
-src-git telephony https://github.com/coolsnowwolf/telephony.git
-EOF
+#cat >> feeds.conf.default << EOF
+#src-git packages https://github.com/coolsnowwolf/packages
+#src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12
+#src-git routing https://github.com/coolsnowwolf/routing
+#src-git telephony https://github.com/coolsnowwolf/telephony.git
+#EOF
 
 # immortalwrt (openwrt-25.12)
 #cat >> feeds.conf.default << EOF
@@ -42,3 +42,11 @@ EOF
 #src-git telephony https://github.com/openwrt/telephony.git
 #src-git video https://github.com/openwrt/video.git
 #EOF
+
+cat >> feeds.conf.default << EOF
+src-git packages https://github.com/coolsnowwolf/packages
+src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05
+#src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-24.10
+src-git routing https://github.com/coolsnowwolf/routing
+src-git telephony https://github.com/coolsnowwolf/telephony.git
+EOF
