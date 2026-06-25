@@ -32,11 +32,11 @@ sed -i '/luci-i18n-wol-zh-cn=y/d' .config
 sed -i '/etherwake=y/d' .config
 
 # 修改登录IP
-NEW_IP="192.168.2.1"
+#NEW_IP="192.168.2.1"
 # 修改登录密码
 NEW_PASSWORD="123456"
 # 执行IP、登录密码配置代码
-sed -i "s/192\.168\.[0-9]\+\.[0-9]\+/$NEW_IP/g" $CFG_PATH_1
+#sed -i "s/192\.168\.[0-9]\+\.[0-9]\+/$NEW_IP/g" $CFG_PATH_1
 CRYPT_PASSWORD=$(openssl passwd -1 "$NEW_PASSWORD")
 sed -i "s|^root:[^:]*:|root:$CRYPT_PASSWORD:|" $CFG_PATH_2
 
