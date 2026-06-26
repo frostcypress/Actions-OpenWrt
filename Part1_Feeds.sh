@@ -10,11 +10,6 @@
 # 清空原有软件源配置（彻底清空）
 > feeds.conf.default
 
-# 第三方插件源
-#cat >> feeds.conf.default << EOF
-#src-git helloworld https://github.com/fw876/helloworld.git
-#EOF
-
 # LEDE (master)
 cat >> feeds.conf.default << EOF
 src-git packages https://github.com/coolsnowwolf/packages
@@ -23,6 +18,7 @@ src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05
 src-git routing https://github.com/coolsnowwolf/routing
 src-git telephony https://github.com/coolsnowwolf/telephony.git
 #src-git helloworld https://github.com/fw876/helloworld.git
+src-git rtp2httpd https://github.com/stackia/rtp2httpd.git
 EOF
 
 # LibWrt（main-nss）
