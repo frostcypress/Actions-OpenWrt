@@ -18,18 +18,18 @@ echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
 
 # 清理旧配置
 # kms
-sed -i '/vlmcsd/d' .config
+#sed -i '/vlmcsd/d' .config
 # ddns
-sed -i '/luci-app-ddns=y/d' .config
-sed -i '/luci-i18n-ddns-zh-cn=y/d' .config
-sed -i '/ddns-scripts=y/d' .config
-sed -i '/ddns-scripts-services=y/d' .config
-sed -i '/ddns-scripts_aliyun=y/d' .config
-sed -i '/ddns-scripts_dnspod=y/d' .config
+#sed -i '/luci-app-ddns=y/d' .config
+#sed -i '/luci-i18n-ddns-zh-cn=y/d' .config
+#sed -i '/ddns-scripts=y/d' .config
+#sed -i '/ddns-scripts-services=y/d' .config
+#sed -i '/ddns-scripts_aliyun=y/d' .config
+#sed -i '/ddns-scripts_dnspod=y/d' .config
 # wol
-sed -i '/luci-app-wol=y/d' .config
-sed -i '/luci-i18n-wol-zh-cn=y/d' .config
-sed -i '/etherwake=y/d' .config
+#sed -i '/luci-app-wol=y/d' .config
+#sed -i '/luci-i18n-wol-zh-cn=y/d' .config
+#sed -i '/etherwake=y/d' .config
 
 # 修改登录IP
 #NEW_IP="192.168.2.1"
