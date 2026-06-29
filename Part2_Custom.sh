@@ -19,17 +19,7 @@ echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
 # 清理旧配置
 # kms
 #sed -i '/vlmcsd/d' .config
-# ddns
-#sed -i '/luci-app-ddns=y/d' .config
-#sed -i '/luci-i18n-ddns-zh-cn=y/d' .config
-#sed -i '/ddns-scripts=y/d' .config
-#sed -i '/ddns-scripts-services=y/d' .config
-#sed -i '/ddns-scripts_aliyun=y/d' .config
-#sed -i '/ddns-scripts_dnspod=y/d' .config
-# wol
-#sed -i '/luci-app-wol=y/d' .config
-#sed -i '/luci-i18n-wol-zh-cn=y/d' .config
-#sed -i '/etherwake=y/d' .config
+
 
 # 修改登录IP
 #NEW_IP="192.168.2.1"
@@ -41,6 +31,6 @@ CRYPT_PASSWORD=$(openssl passwd -1 "$NEW_PASSWORD")
 sed -i "s|^root:[^:]*:|root:$CRYPT_PASSWORD:|" $CFG_PATH_2
 
 echo "⚠️ 配置完成，正在验证..."
-grep -E 'CCACHE|vlmcsd|ddns|wol|etherwake|apk|ipk|libwebsockets-mbedtls|libwebsockets-openssl' .config
+grep -E 'CCACHE|vlmcsd' .config
 grep -E 'root' $CFG_PATH_2
 grep -E "ipaddr" $CFG_PATH_1
