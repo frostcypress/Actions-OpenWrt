@@ -124,6 +124,8 @@ jobs:
         cd openwrt
         ./scripts/feeds update -a
         ./scripts/feeds install -a
+        rm -rf feeds/packages/libs/afalg_engine
+        rm -rf package/feeds/packages/afalg_engine
   
     - name: 执行PART2_CUSTOM配置文件
       run: |
