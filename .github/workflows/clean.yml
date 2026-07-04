@@ -1,5 +1,9 @@
-clean:
-    needs: build
+name: clean
+on:
+  workflow_dispatch:
+
+jobs:
+  clean:
     runs-on: ubuntu-22.04
     if: always()
     steps:
