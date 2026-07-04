@@ -15,7 +15,7 @@ CFG_PATH_2=package/base-files/files/etc/shadow
 sed -i '/CCACHE/d' .config
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
-echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=y" >> .config
+#echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=y" >> .config
 
 # 清理旧配置
 # kms
