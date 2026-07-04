@@ -15,6 +15,7 @@ CFG_PATH_2=package/base-files/files/etc/shadow
 sed -i '/CCACHE/d' .config
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
+echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=y" >> .config
 
 # 清理旧配置
 # kms
@@ -31,6 +32,6 @@ echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
 #sed -i "s|^root:[^:]*:|root:$CRYPT_PASSWORD:|" $CFG_PATH_2
 
 echo "⚠️ 配置完成，正在验证..."
-grep -E 'CCACHE|vlmcsd' .config
+grep -E 'CCACHE|vlmcsd|NSS' .config
 grep -E 'root' $CFG_PATH_2
 grep -E "ipaddr" $CFG_PATH_1
