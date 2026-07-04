@@ -1,0 +1,32 @@
+clean:
+    needs: build
+    runs-on: ubuntu-22.04
+    if: always()
+    steps:
+      - name: 拉取代码到虚拟运行环境
+        uses: actions/checkout@v6
+    
+      - name: 清理旧Releases和Tags
+        run: bash scripts/clean.sh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CLEAN_TYPE: release
+          KEEP_LATEST: 0
+          KEEP_DAYS: 90
+  
+      - name: 清理旧Workflows运行记录
+        run: bash scripts/clean.sh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_WORKFLOW: ${{ github.workflow }}
+          CLEAN_TYPE: workflow
+          KEEP_LATEST: 3
+          KEEP_DAYS: 90
+  
+      - name: 清理旧Cache缓存记录
+        run: bash scripts/clean.sh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CLEAN_TYPE: cache
+          KEEP_LATEST: 0
+          KEEP_DAYS: 10
