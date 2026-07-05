@@ -25,8 +25,6 @@
 
 # LibWrt（25.12-nss）
 cat >> feeds.conf.default << EOF
-#src-git helloworld https://github.com/fw876/helloworld.git
-#src-git rtp2httpd https://github.com/stackia/rtp2httpd.git
 src-git nss_packages https://github.com/qosmio/nss-packages.git
 src-git sqm_scripts_nss https://github.com/qosmio/sqm-scripts-nss.git
 src-git packages https://github.com/immortalwrt/packages.git^881bc2200a61801edc8db88e7631f7e6468989a1
