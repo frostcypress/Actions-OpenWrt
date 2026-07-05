@@ -11,36 +11,27 @@
 > feeds.conf.default
 
 # LEDE (master)
-#cat >> feeds.conf.default << EOF
-#src-git packages https://github.com/coolsnowwolf/packages
+cat >> feeds.conf.default << EOF
+src-git packages https://github.com/coolsnowwolf/packages
 #src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05
 #src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-24.10
-#src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12
-#src-git routing https://github.com/coolsnowwolf/routing
-#src-git telephony https://github.com/coolsnowwolf/telephony.git
-#src-git helloworld https://github.com/fw876/helloworld.git
-#EOF
+src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12
+src-git routing https://github.com/coolsnowwolf/routing
+src-git telephony https://github.com/coolsnowwolf/telephony.git
+src-git helloworld https://github.com/fw876/helloworld.git
+src-git rtp2httpd https://github.com/stackia/rtp2httpd.git
+EOF
 
-# LibWrt（main-nss）
+
+# LibWrt（25.12-nss）
 #cat >> feeds.conf.default << EOF
+#src-git helloworld https://github.com/fw876/helloworld.git
+#src-git rtp2httpd https://github.com/stackia/rtp2httpd.git;v3.14.3
 #src-git nss_packages https://github.com/qosmio/nss-packages.git
 #src-git sqm_scripts_nss https://github.com/qosmio/sqm-scripts-nss.git
-#src-git packages https://github.com/immortalwrt/packages.git
-#src-git luci https://github.com/immortalwrt/luci.git
-#src-git routing https://github.com/openwrt/routing.git
-#src-git telephony https://github.com/openwrt/telephony.git
-#src-git video https://github.com/openwrt/video.git
-#src-git helloworld https://github.com/fw876/helloworld.git
+#src-git packages https://github.com/immortalwrt/packages.git^881bc2200a61801edc8db88e7631f7e6468989a1
+#src-git luci https://github.com/immortalwrt/luci.git^a701807e2e0051f342f9980fd85f90f6966af9b0
+#src-git routing https://github.com/openwrt/routing.git^b2097c85bef85251364f59a6b2a3ed1f9f5c0c21
+#src-git telephony https://github.com/openwrt/telephony.git^2618106d5846a4a542fdf5809f0d3ed228ce439b
+#src-git video https://github.com/openwrt/video.git^094bf58da6682f895255a35a84349a79dab4bf95
 #EOF
-
-cat >> feeds.conf.default << EOF
-src-git helloworld https://github.com/fw876/helloworld.git
-src-git rtp2httpd https://github.com/stackia/rtp2httpd.git;v3.14.3
-src-git nss_packages https://github.com/qosmio/nss-packages.git
-src-git sqm_scripts_nss https://github.com/qosmio/sqm-scripts-nss.git
-src-git packages https://github.com/immortalwrt/packages.git^881bc2200a61801edc8db88e7631f7e6468989a1
-src-git luci https://github.com/immortalwrt/luci.git^a701807e2e0051f342f9980fd85f90f6966af9b0
-src-git routing https://github.com/openwrt/routing.git^b2097c85bef85251364f59a6b2a3ed1f9f5c0c21
-src-git telephony https://github.com/openwrt/telephony.git^2618106d5846a4a542fdf5809f0d3ed228ce439b
-src-git video https://github.com/openwrt/video.git^094bf58da6682f895255a35a84349a79dab4bf95
-EOF
