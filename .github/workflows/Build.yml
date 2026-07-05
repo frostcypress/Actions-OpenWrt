@@ -122,9 +122,8 @@ jobs:
     - name: 更新并安装插件源软件包
       run: |
         cd openwrt
+        ./scripts/feeds clean
         ./scripts/feeds update -a
-        rm -rf feeds/packages/libs/afalg_engine
-        rm -rf package/feeds/packages/afalg_engine
         ./scripts/feeds install -a
 
     - name: 执行PART2_CUSTOM配置文件
