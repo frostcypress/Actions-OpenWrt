@@ -15,19 +15,13 @@ CFG_PATH_2=package/base-files/files/etc/shadow
 sed -i '/CCACHE/d' .config
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
-#echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=y" >> .config
-
-# 清理旧配置
-# kms
-#sed -i '/vlmcsd/d' .config
-
 
 # 修改登录IP
-NEW_IP="192.168.2.1"
+#NEW_IP="192.168.2.1"
 # 修改登录密码
 NEW_PASSWORD="123456"
 # 执行IP、登录密码配置代码
-sed -i "s/192\.168\.[0-9]\+\.[0-9]\+/$NEW_IP/g" $CFG_PATH_1
+#sed -i "s/192\.168\.[0-9]\+\.[0-9]\+/$NEW_IP/g" $CFG_PATH_1
 CRYPT_PASSWORD=$(openssl passwd -1 "$NEW_PASSWORD")
 sed -i "s|^root:[^:]*:|root:$CRYPT_PASSWORD:|" $CFG_PATH_2
 
