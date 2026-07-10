@@ -6,7 +6,7 @@
 #
 
 # 工作流Workflows名称
-name: immortalwrt_Build
+name: Build
 
 on:
   # 支持API远程触发
