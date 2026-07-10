@@ -30,6 +30,7 @@
 
 # LibWrt（v25.12.1）
 cat >> feeds.conf.default << EOF
+src-git helloworld https://github.com/fw876/helloworld.git
 src-git nss_packages https://github.com/qosmio/nss-packages.git
 src-git sqm_scripts_nss https://github.com/qosmio/sqm-scripts-nss.git
 src-git packages https://github.com/immortalwrt/packages.git^e93a938c63124832d549c41da3157e2ec40fbe05
