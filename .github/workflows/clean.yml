@@ -24,7 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_WORKFLOW: ${{ github.workflow }}
           CLEAN_TYPE: workflow
-          KEEP_LATEST: 3
+          KEEP_LATEST: 0
           KEEP_DAYS: 90
   
       - name: 清理旧Cache缓存记录
