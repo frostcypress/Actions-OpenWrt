@@ -29,7 +29,7 @@
 
 # LEDE (20251001)
 cat >> feeds.conf.default << EOF
-src-git helloworld https://github.com/fw876/helloworld.git
+src-git rtp2httpd https://github.com/stackia/rtp2httpd.git
 src-git packages https://github.com/coolsnowwolf/packages
 src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05
 src-git routing https://github.com/coolsnowwolf/routing
