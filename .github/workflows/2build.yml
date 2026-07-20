@@ -56,6 +56,7 @@ jobs:
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
         # 清理本地docker镜像
         sudo docker image prune --all --force
+        sudo add-apt-repository universe multiverse
         # 更新软件源
         sudo -E apt-get -qq update
         # 安装编译依赖
