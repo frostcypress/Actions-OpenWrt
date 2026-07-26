@@ -134,8 +134,9 @@ jobs:
         cp configs/${{ matrix.device }}.config openwrt/.config
         chmod +x $PART2_CUSTOM
         cd openwrt
-        make defconfig
         $GITHUB_WORKSPACE/$PART2_CUSTOM
+        make defconfig
+        
 
     - name: 下载编译所需源码包
       run: |
