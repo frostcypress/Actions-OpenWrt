@@ -136,6 +136,10 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$PART2_CUSTOM
         make defconfig
+        echo "⚠️ 配置完成，正在验证..."
+        grep -E 'CCACHE|vlmcsd|NSS' .config
+        grep -E 'root' $CFG_PATH_2
+        grep -E "ipaddr" $CFG_PATH_1
         
 
     - name: 下载编译所需源码包
