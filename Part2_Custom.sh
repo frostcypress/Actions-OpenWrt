@@ -12,7 +12,7 @@ CFG_PATH_1=$(find package/base-files -name "config_generate" -type f)
 CFG_PATH_2=package/base-files/files/etc/shadow
 
 # 开启和指定缓存路径（默认）
-sed -i '/CCACHE/d' .config
+#sed -i '/CCACHE/d' .config
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_CCACHE_DIR=\"/workdir/openwrt/.ccache\"" >> .config
 
