@@ -118,7 +118,7 @@ jobs:
         chmod +x $PART1_FEEDS
         cd openwrt
         # 内核修改（若修改请修改对应内核和路径）
-        sed -i 's/^KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.6/' target/linux/qualcommax/Makefile
+        #sed -i 's/^KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.6/' target/linux/qualcommax/Makefile
         $GITHUB_WORKSPACE/$PART1_FEEDS
     
     - name: 更新并安装插件源软件包
