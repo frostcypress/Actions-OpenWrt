@@ -11,13 +11,13 @@
 > feeds.conf.default
 
 # LEDE (master)
-#cat >> feeds.conf.default << EOF
-#src-git packages https://github.com/coolsnowwolf/packages
-#src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12
-#src-git routing https://github.com/coolsnowwolf/routing
-#src-git telephony https://github.com/coolsnowwolf/telephony.git
-#src-git helloworld https://github.com/fw876/helloworld.git
-#EOF
+cat >> feeds.conf.default << EOF
+src-git packages https://github.com/coolsnowwolf/packages
+src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12
+src-git routing https://github.com/coolsnowwolf/routing
+src-git telephony https://github.com/coolsnowwolf/telephony.git
+src-git helloworld https://github.com/fw876/helloworld.git
+EOF
 
 # LEDE (20251001)
 #cat >> feeds.conf.default << EOF
@@ -31,12 +31,12 @@
 
 
 # LibWrt（25.12-nss）
-cat >> feeds.conf.default << EOF
-src-git nss_packages https://github.com/qosmio/nss-packages.git
-src-git sqm_scripts_nss https://github.com/qosmio/sqm-scripts-nss.git
-src-git packages https://github.com/immortalwrt/packages.git;openwrt-25.12
-src-git luci https://github.com/immortalwrt/luci.git;openwrt-25.12
-src-git routing https://github.com/openwrt/routing.git;openwrt-25.12
-src-git telephony https://github.com/openwrt/telephony.git;openwrt-25.12
-src-git video https://github.com/openwrt/video.git;openwrt-25.12
-EOF
+#cat >> feeds.conf.default << EOF
+#src-git nss_packages https://github.com/qosmio/nss-packages.git
+#src-git sqm_scripts_nss https://github.com/qosmio/sqm-scripts-nss.git
+#src-git packages https://github.com/immortalwrt/packages.git;openwrt-25.12
+#src-git luci https://github.com/immortalwrt/luci.git;openwrt-25.12
+#src-git routing https://github.com/openwrt/routing.git;openwrt-25.12
+#src-git telephony https://github.com/openwrt/telephony.git;openwrt-25.12
+#src-git video https://github.com/openwrt/video.git;openwrt-25.12
+#EOF
