@@ -17,7 +17,7 @@ src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-24.10
 #src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12
 src-git routing https://github.com/coolsnowwolf/routing
 src-git telephony https://github.com/coolsnowwolf/telephony.git
-src-git helloworld https://github.com/fw876/helloworld.git
+#src-git helloworld https://github.com/fw876/helloworld.git
 EOF
 
 # LEDE (20251001)
